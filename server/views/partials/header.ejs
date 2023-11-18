@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/content/app.css" />
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+  </head>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Web Programming</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <% if(title == "Home") { %>
+              <a class="nav-link active" href="/home">
+            <% } else { %>
+              <a class="nav-link" href="/home">
+            <% } %>
+              <i class="fa-solid fa-lg fa-house-laptop"></i> Home</a>
+          </li>
+          <li class="nav-item">
+            <% if(title == "Exercise") { %>
+              <a class="nav-link active" href="/exercise">
+            <% } else { %>
+              <a class="nav-link" href="/exercise">
+            <% } %>
+            <i class="fa-solid fa-person-running"></i> Exercise</a>
+          </li>
+          
+          <li class="nav-item">
+            <% if(title == "Workout List") { %>
+              <a class="nav-link active" href="/workout">
+            <% } else { %> 
+              <a class="nav-link" href="/workout">
+            <% } %>
+            <i class="fa-solid fa-dumbbell"></i> Workout Tracker</a>
+          </li>
+          <li class="nav-item">
+            <% if(title == "Contact") { %>
+              <a class="nav-link active" href="contactus">
+            <% } else { %> 
+              <a class="nav-link" href="contactus">
+            <% } %>
+              <i class="fa-solid fa-phone-flip"></i> Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+</html>
