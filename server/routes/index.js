@@ -15,4 +15,20 @@ router.get('/home', function(req, res, next) {
   });
 });
 
+/* GET about us page. */
+router.get('/aboutus', function(req, res, next) {
+  res.render('about', { 
+    title: 'About Us'  
+  });
+});
+
+/* GET Contact page. */
+router.get('/contactus', function(req, res, next) {
+  res.render('contact', { 
+    title: 'Contact Us'  
+  });
+});
+
 module.exports = router;
+
+

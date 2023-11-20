@@ -1,0 +1,50 @@
+<% include ../partials/header.ejs %> 
+
+<main class="container">
+    <div class="row">
+        <div class="offset-md-1 col-md-10">
+            <h1><% title %> </h1>  
+            <a href="/grocery/add" class="btn btn-primary" 
+            role="button"><i class="fas fa-plus-circle"></i> Add Grocery </a>      
+        <br>
+        <table class="table table-borderless table-striped table-hover table-light ">
+
+            <thead class="table-dark text-uppercase">
+            <tr class="d-flex ">
+                <th class="text-center col-2">Item</th>
+                <th class="text-center col-2">Brand</th>
+                <th class="text-center col-2">Cost</th>
+                <th class="text-center col-2">Quantity</th>
+                <th class="text-center col-4">Functions</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% for(let count=0;count<grocerylist.length;count++) { %>    
+            <tr class="d-flex">
+                <td class="text-center col-2"><%= grocerylist[count].item %></td>
+                <td class="text-center col-2"><%= grocerylist[count].brand %></td>
+                <td class="text-center col-2"><%= grocerylist[count].cost %></td>
+                <td class="text-center col-2"><%= grocerylist[count].quantity %></td>
+                <td class="text-center col-2">
+                    <a href="/grocery/edit/<%= grocerylist[count]._id %>" 
+                        class="btn btn-primary btn-sm">
+                        <i class="fas fa-pencil-alt"></i> Edit
+                    </a>
+                </td>
+                <td class="text-center col-2">
+                    <a href="/grocery/delete/<%= grocerylist[count]._id %>" 
+                        class="btn btn-danger btn-sm">
+                        <i class="fas trash-alt"></i> Delete
+                    </a>
+                </td>
+            </tr>
+            <% } %>
+            </tbody>
+
+        </table>
+    </div>
+    </div>
+</main>
+
+<% include ../partials/footer.ejs %>

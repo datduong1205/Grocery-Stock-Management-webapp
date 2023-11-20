@@ -10,12 +10,12 @@
     />
   </head>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-uppercase">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">Web Programming</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <a class="navbar-brand" href="#">
+        <!-- <img src="../../asset/images/Grocery Go-logos.jpeg" width="=50" height="40" class="d-inline-block align-top" alt=""> -->
+        Web Programming
+      </a>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
@@ -24,32 +24,32 @@
             <% } else { %>
               <a class="nav-link" href="/home">
             <% } %>
-              <i class="fa-solid fa-lg fa-house-laptop"></i> Home</a>
+              <i class="fa-solid fa-lg fa-house-laptop"></i> Home </a>
           </li>
           <li class="nav-item">
-            <% if(title == "Exercise") { %>
-              <a class="nav-link active" href="/exercise">
+            <% if(title == "About Us") { %>
+              <a class="nav-link active" href="/aboutus">
             <% } else { %>
-              <a class="nav-link" href="/exercise">
+              <a class="nav-link" href="/aboutus">
             <% } %>
-            <i class="fa-solid fa-person-running"></i> Exercise</a>
+            <i class="fa-solid fa-user"></i> About Us </a>
           </li>
           
           <li class="nav-item">
-            <% if(title == "Workout List") { %>
-              <a class="nav-link active" href="/workout">
+            <% if(title == "grocery List") { %>
+              <a class="nav-link active" href="/grocery">
             <% } else { %> 
-              <a class="nav-link" href="/workout">
+              <a class="nav-link" href="/grocery">
             <% } %>
-            <i class="fa-solid fa-dumbbell"></i> Workout Tracker</a>
+            <i class="fa-solid fa-cart-shopping"></i> Grocery Tracker </a>
           </li>
           <li class="nav-item">
-            <% if(title == "Contact") { %>
+            <% if(title == "Contact Us") { %>
               <a class="nav-link active" href="contactus">
             <% } else { %> 
               <a class="nav-link" href="contactus">
             <% } %>
-              <i class="fa-solid fa-phone-flip"></i> Contact Us</a>
+              <i class="fa-solid fa-phone-flip"></i> Contact Us </a>
           </li>
         </ul>
       </div>
