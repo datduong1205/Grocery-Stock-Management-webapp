@@ -7,8 +7,9 @@ module.exports.Dislaygrocery = async (req,res,next)=>{ //< Mark function as asyn
     try{
        const grocerylist = await grocery.find(); //< Use of await keyword
        res.render('grocery/list', {
-          title: 'grocery List', 
-          grocerylist: grocerylist
+          title: 'grocery List',
+          grocerylist: grocerylist,
+          displayName: req.user ? req.user.displayName: ''
        });
     }catch(err){
        console.error(err);
@@ -23,7 +24,8 @@ module.exports.Dislaygrocery = async (req,res,next)=>{ //< Mark function as asyn
     try{
         res.render('grocery/add',
         {
-            title:'Add grocery'
+            title:'Add grocery',
+            displayName: req.user ? req.user.displayName: ''
         })
     }
     catch(err)
@@ -64,6 +66,7 @@ module.exports.Editgrocery = async (req,res,next)=>{
     res.render('grocery/edit',
     {
         title:'Edit grocery',
+        displayName: req.user ? req.user.displayName: '',
         grocery:groceryToEdit
     })
 }
@@ -84,7 +87,7 @@ module.exports.ProcessEditgrocery = (req,res,next)=>{
             "item": req.body.item,
             "brand": req.body.brand,
             "cost": req.body.cost,
-            "quantity": req.body.quantity,
+            "quantity": req.body.quantity
         });
         grocery.findByIdAndUpdate(id,updatedgrocery).then(()=>{
             res.redirect('/grocery')

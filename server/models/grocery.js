@@ -6,7 +6,7 @@ let groceryModel = mongoose.Schema(
     item:String,
     brand:String,
     cost:String,
-    quantity:Number,                     
+    quantity:Number                   
   },
   {
     collection: "grocery",

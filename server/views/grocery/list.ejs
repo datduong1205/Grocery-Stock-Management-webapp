@@ -4,8 +4,10 @@
     <div class="row">
         <div class="offset-md-1 col-md-10">
             <h1><% title %> </h1>  
+            <% if(typeof displayName == 'string' && displayName) { %>
             <a href="/grocery/add" class="btn btn-primary" 
             role="button"><i class="fas fa-plus-circle"></i> Add Grocery </a>      
+            <% } %>
         <br>
         <table class="table table-borderless table-striped table-hover table-light ">
 
@@ -15,7 +17,9 @@
                 <th class="text-center col-2">Brand</th>
                 <th class="text-center col-2">Cost</th>
                 <th class="text-center col-2">Quantity</th>
+                <% if(typeof displayName == 'string' && displayName) { %>
                 <th class="text-center col-4">Functions</th>
+                <% } %>
             </tr>
             </thead>
 
@@ -26,6 +30,7 @@
                 <td class="text-center col-2"><%= grocerylist[count].brand %></td>
                 <td class="text-center col-2"><%= grocerylist[count].cost %></td>
                 <td class="text-center col-2"><%= grocerylist[count].quantity %></td>
+                <% if(typeof displayName == 'string' && displayName) { %>
                 <td class="text-center col-2">
                     <a href="/grocery/edit/<%= grocerylist[count]._id %>" 
                         class="btn btn-primary btn-sm">
@@ -38,6 +43,7 @@
                         <i class="fas trash-alt"></i> Delete
                     </a>
                 </td>
+                <% } %>
             </tr>
             <% } %>
             </tbody>
