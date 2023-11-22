@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/content/app.css" />
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="/@fortawesome/fontawesome-free/css/all.min.css"
+    />
+  </head>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary text-uppercase">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <!-- <img src="../../asset/images/Grocery Go-logos.jpeg" width="=50" height="40" class="d-inline-block align-top" alt=""> -->
+        Web Programming
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <% if(title == "Home") { %>
+              <a class="nav-link active" href="/home">
+            <% } else { %>
+              <a class="nav-link" href="/home">
+            <% } %>
+              <i class="fa-solid fa-lg fa-house-laptop"></i> Home </a>
+          </li>
+          <li class="nav-item">
+            <% if(title == "About Us") { %>
+              <a class="nav-link active" href="/aboutus">
+            <% } else { %>
+              <a class="nav-link" href="/aboutus">
+            <% } %>
+            <i class="fa-solid fa-user"></i> About Us </a>
+          </li>
+          
+          <li class="nav-item">
+            <% if(title == "grocery List") { %>
+              <a class="nav-link active" href="/grocery">
+            <% } else { %> 
+              <a class="nav-link" href="/grocery">
+            <% } %>
+            <i class="fa-solid fa-cart-shopping"></i> Grocery Tracker </a>
+          </li>
+          <li class="nav-item">
+            <% if(title == "Contact Us") { %>
+              <a class="nav-link active" href="contactus">
+            <% } else { %> 
+              <a class="nav-link" href="contactus">
+            <% } %>
+              <i class="fa-solid fa-phone-flip"></i> Contact Us </a>
+          </li>
+          <% if(typeof displayName == 'string' && displayName) { %>
+          <li class="navbar-text">
+            <i class="fas fa-lg fa-user"></i>
+            Welcome, <%= displayName %>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">
+              <i class="fa-solid fa-sign-out-alt"></i> Log Out </a>
+          </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/login">
+              <i class="fa-solid fa-sign-in-alt"></i> Log In </a>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+</html>
