@@ -5,11 +5,11 @@
 }
 
 .nav-link {
-  position: relative;                                           
+  position: relative;
 }
 
 .nav-link::after {
-  content: '';
+  content: "";
   opacity: 0;
   transition: all 0.2;
   height: 2px;
@@ -24,4 +24,136 @@
   opacity: 1;
 }
 
+.formPage {
+  text-align: center;
+  margin-top: 25px;
+}
+
+form {
+  text-align: center;
+  align-items: center;
+}
+
+body {
+  background-image: url(/asset/images/background70.png);
+}
+
+form label {
+  font-size: 20px;
+}
+
+input[type="text"] {
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: grey;
+  width: 500px;
+}
+
+input[type="email"] {
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: grey;
+  width: 500px;
+}
+
+input[type="phone"] {
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: grey;
+  width: 500px;
+}
+
+textarea[type="comments"] {
+  border-radius: 5px;
+  border: 1px solid;
+  border-color: grey;
+}
+
+input[type="submit"] {
+  background-color: rgb(1, 187, 29);
+  color: aliceblue;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 4px;
+}
+
+input[type="submit"]:hover {
+  background-color: rgb(0, 231, 35);
+  color: aliceblue;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 4px;
+}
+
+/*About Us Section*/
+.aboutTitle {
+  text-align: center;
+  margin-top: 25px;
+  font-weight: bold;
+}
+
+.aboutContainer {
+  color: rgb(209, 0, 63);
+  border: 5px black;
+  opacity: 0.9;
+  padding: 10px;
+  border-radius: 25px;
+  height: 500px;
+  background-color: rgb(205, 205, 205);
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 25px;
+}
+.OurMission {
+  color:black;
+  font-weight: bold;
+}
+
+.containerTitle {
+  text-align: center;
+}
+
+/*Home/Index Section*/
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 20px;
+  background-color: green;
+  color: #333;
+}
+
+.subhead{
+  color: rgb(209, 0, 63)
+  
+}
+
+.HomeTitle {
+  color: #4CAF50;
+  text-align: center;
+}
+
+.HomeContainer {
+  
+  margin-left:300px;
+  margin-right: 300px;
+  margin-top:15px;
+  padding: 10px;
+  background-color:rgba(220, 20, 60, 0.112);
+  border-radius: 8px;
+  height:600px;
+  border-color: blue;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.contTitle {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 4;
+}
 
