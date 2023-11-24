@@ -77,7 +77,6 @@ input[type=submit]{
   font-weight: bold;
   border-radius: 5px;
   padding: 4px;
-  
 }
 
 input[type=submit]:hover{
@@ -89,3 +88,25 @@ input[type=submit]:hover{
   padding: 4px;
 }
 
+/*About Us Section*/
+.aboutTitle{
+  text-align: center;
+  margin-top: 25px;
+  font-weight: bold;
+}
+
+.aboutContainer{
+  border: 5px grey;
+  opacity: 0.9;
+  padding: 10px;
+  border-radius: 25px;
+  height: 500px;
+  background-color: rgb(205, 205, 205);
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-top: 25px;
+}
+
+.containerTitle{
+  text-align: center;
+}
