@@ -1,4 +1,42 @@
-<% include partials/header.ejs %>
 
+<% include partials/header.ejs %> 
+
+<link rel='stylesheet' href='/content/app.css'>
+<body>
+<div class="formPage">
+  <h1 id="formSection">Have a Question? Contact Us Here!</h1>
+</div>
+<br>
+    <!--Mails to this email address-->
+    <form action="mailto:yanhoquincy.chan@ontariotechu.net" method="post" enctype="text/plain" name="form">
+        <p>
+            <label for="name"><b>Name:</b></label>
+            <br>
+            <input type="text" name="name" placeholder="Enter your name" size="40" required>
+        </p>
+        <br>
+        <p>
+            <label for="email"><b>Email:</b></label>
+            <br>
+            <input type="email" type="email" placeholder="Enter your Email" size="40" required>
+        </p>
+        <br>
+        <p>
+            <label for="phone"><b>Phone Number:</b></label>
+            <br>
+            <input type="phone" placeholder="Enter your phone number" size="40"></textarea>
+        </p>
+        <br>
+        <p>
+            <label for="comments"><b>Comments:</b></label>
+            <br>
+            <textarea type="comments" placeholder="Enter your comments" cols="60" rows="6" required></textarea>
+        </p>
+        <br>
+        <p>
+            <input type="submit" value="Click here to submit"/>
+        </p>           
+    </form>
+</body>
 
 <% include partials/footer.ejs %>
