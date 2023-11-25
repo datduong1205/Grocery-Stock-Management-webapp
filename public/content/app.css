@@ -36,7 +36,9 @@ form {
 }
 
 body {
-  background-image: url(../../public/asset/images/backgroundBlue.jpg);
+  background-size: cover;
+  background-position: center;
+  background-image: url(/asset/images/background70.png);
 }
 
 form label {
@@ -136,7 +138,6 @@ input[type="submit"]:hover {
 }
 
 .HomeContainer {
-  
   margin-left:300px;
   margin-right: 300px;
   margin-top:15px;
