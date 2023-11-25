@@ -36,10 +36,9 @@ form {
 }
 
 body {
-  background-size: cover;
-  background-position: center;
   background-image: url(/asset/images/background70.png);
 }
+
 
 form label {
   font-size: 20px;
@@ -157,4 +156,8 @@ input[type="submit"]:hover {
 
 .containerTitle{
   text-align: center;
+}
+
+.logo_img {
+  width: 15%;
 }
