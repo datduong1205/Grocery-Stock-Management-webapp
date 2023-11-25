@@ -1,5 +1,4 @@
-# Web-Programming-Project
-
+# Grocery Go
 Group 11 members:
 
 
