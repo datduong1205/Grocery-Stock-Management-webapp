@@ -1,13 +1,10 @@
+<% include partials/header.ejs %>
 
-<% include partials/header.ejs %> 
-
-<link rel='stylesheet' href='/content/app.css'>
 <body>
-<div class="formPage">
+  <!-- <div class="formPage">
   <h1 id="formSection">Have a Question? Contact Us Here!</h1>
 </div>
 <br>
-    <!--Mails to this email address-->
     <form action="mailto:yanhoquincy.chan@ontariotechu.net" method="post" enctype="text/plain" name="form">
         <p>
             <label for="name"><b>Name:</b></label>
@@ -36,7 +33,49 @@
         <p>
             <input type="submit" value="Click here to submit"/>
         </p>           
-    </form>
+    </form> -->
+
+  <section id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="contact_left_column">
+          <h1 class="sub_title">CONTACT US</h1>
+          <p>
+            <i class="fa-solid fa-envelope"></i> Email:
+            grocerygocontact@gmail.com
+          </p>
+          <p>
+            <i class="fa-solid fa-mobile-screen-button"></i> Phone: 437-xxx-xxxx
+          </p>
+        </div>
+        <div class="contact_right_column">
+          <form action="mailto:soundgreat12@gmail.com">
+            <input
+              type="text"
+              name="Name"
+              placeholder="Your Name"
+              size="40"
+              required
+            />
+            <input
+              type="email"
+              name="Email"
+              placeholder="Your Email"
+              size="20"
+              required
+            />
+            <textarea
+              name="Message"
+              rows="6"
+              placeholder="Question, comment or query"
+            ></textarea>
+            <input type="submit" class="button" value="SEND MESSAGE" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="blank"></div>
 </body>
 
 <% include partials/footer.ejs %>

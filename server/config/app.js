@@ -10,6 +10,7 @@ let session = require('express-session');
 let passport = require('passport');
 let passportLocal = require('passport-local');
 let localStrategy = passportLocal.Strategy;
+let GoogleStrategy = require('passport-google-oauth20').Strategy;
 let flash = require('connect-flash');
 // create a user model instance
 let userModel = require('../models/user');
@@ -48,6 +49,18 @@ app.use(flash());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+passport.use(new GoogleStrategy({
+    clientID: '1034220748653-bbbn00noohja9qk88esj8qomik3iil8b.apps.googleusercontent.com',
+    clientSecret: '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',
+    callbackURL: "http://localhost:4000/auth/google/callback"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
 // intialize the passport 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -62,6 +75,16 @@ let groceryRouter = require('../routes/grocery');
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/grocery', groceryRouter);
+
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['profile'] }));
+
+app.get('/auth/google/callback', 
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

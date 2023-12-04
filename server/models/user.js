@@ -1,5 +1,6 @@
 let mongoose = require('mongoose');
 let passportLocalMongoose = require('passport-local-mongoose');
+let findOrCreate = require('mongoose-find-or-create')
 
 let User = mongoose.Schema({
     username: 
@@ -50,6 +51,8 @@ let User = mongoose.Schema({
 // configure this model
 let options = ({MissingPasswordError:'Wrong/Missing Password'});
 User.plugin(passportLocalMongoose, options);
+
+User.plugin(findOrCreate, options)
 
 module.exports.User = mongoose.model('User', User);
 

@@ -1,7 +1,33 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Libre Baskerville', serif;
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Roboto', sans-serif;
+}
+
+form {
+  text-align: center;
+  align-items: center;
+}
+
+body {
+  background-image: url(/asset/images/vege.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+
+form label {
+  font-size: 20px;
+}
+
+:root {
+  --red: #ff014f;
+  --grey: #707881;
+  --gray: #212428;
+  --smooth: all 0.3s ease-in;
 }
 
 .nav-link {
@@ -24,27 +50,12 @@
   opacity: 1;
 }
 
-.formPage {
+/* .formPage {
   text-align: center;
   margin-top: 25px;
-}
+} */
 
-
-form {
-  text-align: center;
-  align-items: center;
-}
-
-body {
-  background-image: url(/asset/images/background70.png);
-}
-
-
-form label {
-  font-size: 20px;
-}
-
-input[type="text"] {
+/* input[type="text"] {
   border-radius: 5px;
   border: 1px solid;
   border-color: grey;
@@ -90,7 +101,7 @@ input[type="submit"]:hover {
   font-weight: bold;
   border-radius: 5px;
   padding: 4px;
-}
+} */
 
 /*About Us Section*/
 
@@ -98,8 +109,14 @@ input[type="submit"]:hover {
   text-align: center;
   margin-top: 25px;
   font-weight: bold;
+  color: rgba(255, 255, 0, 0.74);
+  font-family: 'Libre Baskerville', serif;
 }
 
+.logo_img {
+  width: 20%;
+  margin-left: 450px;
+}
 
 .aboutContainer {
   color: rgb(209, 0, 63);
@@ -108,7 +125,7 @@ input[type="submit"]:hover {
   padding: 10px;
   border-radius: 25px;
   height: 500px;
-  background-color: rgb(205, 205, 205);
+  background-color: rgba(205, 205, 205, 0.9);
   margin-left: 100px;
   margin-right: 100px;
   margin-top: 25px;
@@ -123,17 +140,47 @@ input[type="submit"]:hover {
   text-align: center;
 }
 
-/*Home/Index Section*/
+.aboutus_story {
+  text-wrap: balance;
+}
 
+.OurMission_logo {
+  display: flex;
+  align-items: center;
+  margin-top: 80px; 
+}
 
-.subhead{
-  color: rgb(209, 0, 63)
+/* Home Page*/
+
+/* === Banner === */
+
+#banner {
+  position: relative;
+  display: flex;
+  align-items: center;
   
 }
 
-.HomeTitle {
-  color: #4CAF50;
+.banner_heading {
+  max-width: 1500px;
+  letter-spacing: 2px;
   text-align: center;
+  color: white;
+  height: 70vh;
+}
+
+.banner_heading h1 {
+  font-size: 2.25rem;
+  margin-top: 15px;
+}
+
+.banner_heading p {
+  color: rgba(255, 255, 0.8);
+  font-size: 3rem;
+}
+
+.banner_heading span {
+  font-family: 'Libre Baskerville', serif;;
 }
 
 .HomeContainer {
@@ -158,6 +205,82 @@ input[type="submit"]:hover {
   text-align: center;
 }
 
-.logo_img {
-  width: 15%;
+
+
+/* #formSection {
+  color: whitesmoke;
+} */
+
+/* Grocery Tracker Page */
+.blank {
+  height: 50vh;
+}
+
+/* Contact Us */
+
+.sub_title {
+  margin-top: 10px;
+  color: rgba(255, 255, 0.75);
+}
+
+.contact_left_column {
+  flex-basis: 35%;
+}
+
+.contact_right_column {
+  flex-basis: 60%;
+}
+
+.contact_left_column p {
+  color: white;
+  margin-top: 20px;
+}
+
+
+.button {
+  display: inline-block;
+  margin: 50px auto;
+  width: fit-content;
+  border-radius: 5px;
+  padding: 14px 25px;
+  text-decoration: none;
+  color: white;
+  background-color: #aa1d18;
+}
+
+.contact_right_column form {
+  width: 100%;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: var(--grey);
+  padding: 15px;
+  margin: 15px 0;
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: var(--gray);
+}
+
+form .button {
+  padding: 10px 30px;
+  cursor: pointer;
+}
+
+/* Footer */
+
+.text-danger.text-bold {
+  text-decoration: none;
+}
+
+.register_button {
+  text-decoration: none;
 }
