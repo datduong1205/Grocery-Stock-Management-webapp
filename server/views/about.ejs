@@ -1,140 +1,182 @@
 <% include partials/header.ejs %>
 
 <style>
-  /* About Page Styles */
-  .about-section {
-    padding: 4rem 0;
-    min-height: calc(100vh - 160px);
-    background: #f8f9fa;
-  }
-
-  .aboutTitle {
-    color: #2e7d32;
-    font-size: 2.5rem;
+  .about-hero {
+    background: linear-gradient(rgba(46, 125, 50, 0.9), rgba(46, 125, 50, 0.9)),
+      url("/asset/images/about-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 0;
     text-align: center;
-    margin: 2rem 0;
-    font-weight: 700;
   }
 
-  .aboutContainer {
+  .timeline {
+    position: relative;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 4rem auto;
     padding: 0 2rem;
   }
 
-  .aboutus_story {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 3rem;
+  .timeline-item {
+    padding: 2rem;
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    margin: 2rem 0;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+
+  .timeline-item:hover {
+    transform: translateY(-5px);
+  }
+
+  .team-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 4rem 0;
+  }
+
+  .team-card {
     background: white;
     padding: 2rem;
     border-radius: 10px;
+    text-align: center;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
   }
 
-  .OurMission_logo {
+  .team-card:hover {
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  .team-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    object-fit: cover;
+    border: 3px solid #2e7d32;
+  }
+
+  .stats-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 4rem 0;
+    flex-wrap: wrap;
+  }
+
+  .stat-box {
+    text-align: center;
+    padding: 2rem;
+    margin: 1rem;
+    min-width: 200px;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2e7d32;
+    margin-bottom: 0.5rem;
+  }
+
+  .interactive-mission {
     display: flex;
     align-items: center;
     gap: 2rem;
-    background: white;
     padding: 2rem;
+    background: white;
     border-radius: 10px;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 2rem;
+    margin: 2rem 0;
+    cursor: pointer;
+    transition: all 0.3s;
   }
 
-  .logo_img {
-    width: 150px;
-    height: auto;
+  .interactive-mission:hover {
+    transform: scale(1.02);
   }
 
-  .OurMission {
-    color: #2e7d32;
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+  .about-hero h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+    font-size: 3.5rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    background: linear-gradient(to right, #fff 0%, #c8e6c9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  .OurMission_logo p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #444;
-  }
-
-  .OurMission_logo ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .OurMission_logo li {
-    margin: 1rem 0;
-    padding-left: 1.5rem;
-    position: relative;
-  }
-
-  .OurMission_logo li::before {
-    content: "•";
-    color: #2e7d32;
-    position: absolute;
-    left: 0;
-    font-size: 1.5rem;
-    line-height: 1;
-  }
-
-  @media (max-width: 768px) {
-    .OurMission_logo {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .logo_img {
-      width: 120px;
-    }
-
-    .aboutTitle {
-      font-size: 2rem;
-    }
-
-    .OurMission {
-      font-size: 1.8rem;
-    }
+  .mission-progress .progress-bar {
+    color: white !important;
+    font-weight: 600;
+    letter-spacing: 0.5px;
   }
 </style>
 
 <body>
-  <section class="about-section">
-    <h1 class="aboutTitle">ABOUT US</h1>
+  <!-- Hero Section -->
+  <section class="about-hero">
+    <h1 class="display-4 mb-4">Our Story</h1>
+    <p class="lead">Transforming grocery shopping since 2023</p>
+  </section>
 
-    <div class="aboutContainer">
-      <div class="aboutus_story">
-        Welcome to Grocery Go – Your Smarter Shopping Solution! At Grocery Go,
-        we've reimagined grocery tracking to make your shopping experience a
-        breeze. Our user-friendly app helps you create and customize smart
-        shopping lists, navigate aisles effortlessly, stick to budgets, and
-        discover exciting deals. Say goodbye to stress and hello to seamless,
-        savvy shopping. Download Grocery Go now and transform the way you shop!
+  <!-- Timeline Section -->
+  <div class="container">
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3><i class="fa-solid fa-seedling me-2"></i>Founded in 2023</h3>
+        <p>Born from a passion to revolutionize grocery shopping</p>
       </div>
 
-      <div class="OurMission_logo">
-        <img
-          class="logo_img"
-          src="/asset/images/Grocery Go-logos_transparent.png"
-          alt="Grocery Go Logo"
-        />
-        <div>
-          <h2 class="OurMission">Our Mission</h2>
-          <ul>
-            <li>Empowering efficient and stress-free grocery shopping</li>
-            <li>
-              Your go-to solution for smart lists, budget tracking, and
-              exclusive deals
-            </li>
-            <li>Revolutionize your shopping experience</li>
-          </ul>
+      <div class="timeline-item">
+        <h3><i class="fa-solid fa-users me-2"></i>10,000+ Users</h3>
+        <p>Trusted by shoppers across North America</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3><i class="fa-solid fa-trophy me-2"></i>Award Winning</h3>
+        <p>Recognized as Best Shopping App 2023</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Mission Section -->
+  <section class="container">
+    <div class="interactive-mission">
+      <div class="text-center">
+        <i class="fa-solid fa-bullseye fa-3x text-success"></i>
+      </div>
+      <div>
+        <h2>Our Mission in Action</h2>
+        <p>Hover to see how we're transforming shopping experiences</p>
+        <div class="mission-progress">
+          <div class="progress-bar bg-success" style="width: 85%">
+            85% User Satisfaction
+          </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Stats Section -->
+  <div class="stats-container">
+    <div class="stat-box">
+      <div class="stat-number">500K+</div>
+      <div class="stat-text">Lists Created</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">$1M+</div>
+      <div class="stat-text">Saved Annually</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">4.9★</div>
+      <div class="stat-text">Average Rating</div>
+    </div>
+  </div>
 </body>
 
 <% include partials/footer.ejs %>
