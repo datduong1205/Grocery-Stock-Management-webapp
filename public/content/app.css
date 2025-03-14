@@ -50,59 +50,6 @@ form label {
   opacity: 1;
 }
 
-/* .formPage {
-  text-align: center;
-  margin-top: 25px;
-} */
-
-/* input[type="text"] {
-  border-radius: 5px;
-  border: 1px solid;
-  border-color: grey;
-  width: 500px;
-}
-
-input[type="email"] {
-  border-radius: 5px;
-  border: 1px solid;
-  border-color: grey;
-  width: 500px;
-}
-
-input[type=phone]{
-  border-radius: 5px;
-  border: 1px solid;
-  border-color: grey;
-  width: 500px;
-}
-
-
-textarea[type="comments"] {
-  border-radius: 5px;
-  border: 1px solid;
-  border-color: grey;
-}
-
-
-input[type=submit]{
-  background-color: rgb(1, 187, 29);
-  color: aliceblue;
-  font-size: 20px;
-  font-weight: bold;
-  border-radius: 5px;
-  padding: 4px;
-}
-
-
-input[type="submit"]:hover {
-  background-color: rgb(0, 231, 35);
-  color: aliceblue;
-  font-size: 20px;
-  font-weight: bold;
-  border-radius: 5px;
-  padding: 4px;
-} */
-
 /*About Us Section*/
 
 .aboutTitle {

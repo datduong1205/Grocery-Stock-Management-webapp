@@ -1,37 +1,235 @@
 <% include partials/header.ejs %>
 
+<style>
+  /* Home Page Specific Styles */
+  .hero-section {
+    padding: 4rem 0;
+    text-align: center;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.9),
+        rgba(255, 255, 255, 0.9)
+      ),
+      url("/asset/images/grocery-banner.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feature-section {
+    padding: 4rem 0;
+    background: #f8f9fa;
+  }
+
+  .feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 1rem;
+    transition: transform 0.3s;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .feature-card img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+  }
+
+  .cta-section {
+    padding: 4rem 0;
+    text-align: center;
+    background: #2e7d32;
+    color: white;
+  }
+
+  .app-screenshot {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    margin: 2rem 0;
+  }
+
+  .download-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .store-button {
+    width: 180px;
+    height: auto;
+    transition: transform 0.3s;
+  }
+
+  .store-button:hover {
+    transform: scale(1.05);
+  }
+
+  .hero-section {
+    padding: 8rem 0;
+    text-align: center;
+    background: url("/asset/images/grocery.jpg") no-repeat center center;
+    background-size: cover;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    color: white;
+    max-width: 800px;
+    padding: 0 2rem;
+  }
+
+  .hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-section p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 4rem 0;
+      min-height: 80vh;
+    }
+
+    .hero-section h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+    }
+  }
+
+  .feature-card i {
+        font-size: 2.5rem;
+        color: #2E7D32;
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        background: #f0f7f0;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .store-button {
+        background: white;
+        color: #2E7D32 !important;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        transition: transform 0.3s;
+    }
+
+    .store-button i {
+        font-size: 1.5rem;
+    }
+
+</style>
+
 <body>
-  <!-- <div class="HomeContainer">
-    <div class="contTitle">
-      <h2 class="subhead">Welcome to Grocery Go</h2>
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Smart Grocery Shopping Made Simple</h1>
+      <p>Organize, track, and save with Grocery Go</p>
+      <a href="/grocery" class="btn btn-success btn-lg px-5 py-3">
+        <i class="fa-solid fa-play me-2"></i>Get Started Now
+      </a>
     </div>
+  </section>
 
-    <p>
-      Welcome to Grocery Go the place where you want to start planning and
-      tracking all your grocceries.
-    </p>
-    <br />
-    <p>
-      Are you tired of tracking all your groceries and need a place to carefully
-      track all your spendings? Well this is the place for you!
-    </p>
-    <br />
-    <p>
-      @Grocery Go we ensure that you are able to track all your groceries and be
-      pleased with your trackings
-    </p>
-    <br />
-    <p>Look through and navigate on our bar and login and start your tracks!</p>
-  </div> -->
+  <!-- Features Section -->
+  <section class="feature-section">
+        <div class="container">
+            <h2 class="text-center mb-5">Why Choose Grocery Go?</h2>
+            <div class="row">
+                <!-- Feature 1 -->
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h3>Smart Lists</h3>
+                        <p>Create intelligent shopping lists that organize items by category</p>
+                    </div>
+                </div>
 
-  <!-- banner -->
-  <section id="banner">
-    <div class="container">
-      <div class="banner_heading">
-        <p><span>WELCOME TO GROCERY GO </span></p>
-        <h1>Plan and Track your groceries now.</h1>
-      </div>
-    </div>
+                <!-- Feature 2 -->
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h3>Budget Tracking</h3>
+                        <p>Stay on top of your spending with real-time budget updates</p>
+                    </div>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="col-md-4">
+                    <div class="feature-card">
+                        <h3>Store Maps</h3>
+                        <p>Navigate stores efficiently with aisle-by-aisle guidance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="mb-4">Available on All Devices</h2>
+            <p class="mb-4">Download now and start your smart shopping journey</p>
+            <div class="download-buttons">
+                <a href="#" class="store-button">
+                    <i class="fa-brands fa-app-store-ios"></i>
+                    <span>App Store</span>
+                </a>
+                <a href="#" class="store-button">
+                    <i class="fa-brands fa-google-play"></i>
+                    <span>Google Play</span>
+                </a>
+            </div>
+        </div>
+    </section>
   </section>
 </body>
 

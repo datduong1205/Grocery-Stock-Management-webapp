@@ -1,40 +1,140 @@
 <% include partials/header.ejs %>
 
-<body>
-  <h1 class="aboutTitle">ABOUT US</h1>
+<style>
+  /* About Page Styles */
+  .about-section {
+    padding: 4rem 0;
+    min-height: calc(100vh - 160px);
+    background: #f8f9fa;
+  }
 
-  <div class="aboutContainer">
-    <div class="containerTitle">
-      <!--about container title-->
-      <h2 id=""></h2>
-      <!--about info here-->
-      <p class="aboutus_story">
+  .aboutTitle {
+    color: #2e7d32;
+    font-size: 2.5rem;
+    text-align: center;
+    margin: 2rem 0;
+    font-weight: 700;
+  }
+
+  .aboutContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .aboutus_story {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 3rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .OurMission_logo {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+  }
+
+  .logo_img {
+    width: 150px;
+    height: auto;
+  }
+
+  .OurMission {
+    color: #2e7d32;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .OurMission_logo p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+  }
+
+  .OurMission_logo ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .OurMission_logo li {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+
+  .OurMission_logo li::before {
+    content: "•";
+    color: #2e7d32;
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 768px) {
+    .OurMission_logo {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .logo_img {
+      width: 120px;
+    }
+
+    .aboutTitle {
+      font-size: 2rem;
+    }
+
+    .OurMission {
+      font-size: 1.8rem;
+    }
+  }
+</style>
+
+<body>
+  <section class="about-section">
+    <h1 class="aboutTitle">ABOUT US</h1>
+
+    <div class="aboutContainer">
+      <div class="aboutus_story">
         Welcome to Grocery Go – Your Smarter Shopping Solution! At Grocery Go,
         we've reimagined grocery tracking to make your shopping experience a
         breeze. Our user-friendly app helps you create and customize smart
         shopping lists, navigate aisles effortlessly, stick to budgets, and
         discover exciting deals. Say goodbye to stress and hello to seamless,
         savvy shopping. Download Grocery Go now and transform the way you shop!
-      </p>
-      <!--about container title-->
+      </div>
 
       <div class="OurMission_logo">
         <img
           class="logo_img"
           src="/asset/images/Grocery Go-logos_transparent.png"
+          alt="Grocery Go Logo"
         />
         <div>
           <h2 class="OurMission">Our Mission</h2>
-          <p>
-            - Empowering efficient and stress-free grocery shopping <br />-
-            Grocery Go is your go-to solution for smart lists, budget tracking,
-            and exclusive deals <br />- Revolutionize your shopping experience
-          </p>
+          <ul>
+            <li>Empowering efficient and stress-free grocery shopping</li>
+            <li>
+              Your go-to solution for smart lists, budget tracking, and
+              exclusive deals
+            </li>
+            <li>Revolutionize your shopping experience</li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
-  <div class="blank"></div>
+  </section>
 </body>
 
 <% include partials/footer.ejs %>
