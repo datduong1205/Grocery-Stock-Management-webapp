@@ -1,71 +1,154 @@
 <% include ../partials/header.ejs %>
 
-<!-- Content for the Add page -->
-<div class="container">
-  <div class="row">
-    <div class="offset-md-3 col-md-6">
-      <h1><%= title %></h1>
+<style>
+  .add-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
 
-      <form class="form" method="POST">
+  .form-header {
+    color: #2e7d32;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .form-label {
+    color: #444;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-control {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s;
+  }
+
+  .form-control:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+  }
+
+  .btn-success {
+    background: #2e7d32;
+    border: none;
+    padding: 0.8rem 2rem;
+    transition: all 0.3s;
+  }
+
+  .btn-success:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+  }
+
+  .input-icon {
+    position: relative;
+  }
+
+  .input-icon i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #2e7d32;
+  }
+</style>
+
+<body>
+  <main class="container">
+    <div class="add-container">
+      <h1 class="form-header">Add New Item</h1>
+
+      <form method="POST" autocomplete="off">
         <div class="form-group">
-          <label for="nameTextField">Item</label>
-          <input
-            type="text"
-            class="form-control"
-            id="nameTextField"
-            placeholder="Enter the item"
-            name="item"
-            required
-          />
+          <label class="form-label" for="nameTextField">Item Name</label>
+          <div class="input-icon">
+            <input
+              type="text"
+              class="form-control"
+              id="nameTextField"
+              placeholder="Enter item name"
+              name="item"
+              required
+              autofocus
+            />
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
         </div>
 
         <div class="form-group">
-          <label for="weightTextField">Brand</label>
-          <input
-            type="text"
-            class="form-control"
-            id="weightTextField"
-            placeholder="Enter the brand"
-            name="brand"
-            required
-          />
+          <label class="form-label" for="weightTextField">Brand</label>
+          <div class="input-icon">
+            <input
+              type="text"
+              class="form-control"
+              id="weightTextField"
+              placeholder="Enter brand"
+              name="brand"
+              required
+            />
+            <i class="fa-solid fa-tag"></i>
+          </div>
         </div>
 
         <div class="form-group">
-          <label for="exerciseTextField">Cost</label>
-          <input
-            type="text"
-            class="form-control"
-            id="exerciseTextField"
-            placeholder="Enter the price"
-            name="cost"
-            required
-          />
+          <label class="form-label" for="exerciseTextField">Price</label>
+          <div class="input-icon">
+            <input
+              type="number"
+              class="form-control"
+              id="exerciseTextField"
+              placeholder="Enter price"
+              name="cost"
+              step="0.01"
+              required
+            />
+            <i class="fa-solid fa-dollar-sign"></i>
+          </div>
         </div>
 
         <div class="form-group">
-          <label for="repsTextArea">Quantity</label>
-          <textarea
-            type="text"
-            class="form-control"
-            id="repsTextArea"
-            placeholder="Enter the quantity"
-            name="quantity"
-            required
-          ></textarea>
+          <label class="form-label" for="repsTextArea">Quantity</label>
+          <div class="input-icon">
+            <input
+              type="number"
+              class="form-control"
+              id="repsTextArea"
+              placeholder="Enter quantity"
+              name="quantity"
+              min="1"
+              value="1"
+              required
+            />
+            <i class="fa-solid fa-hashtag"></i>
+          </div>
         </div>
 
-        <button class="btn btn-primary" type="submit">
-          <i class="fas fa-edit"></i> Submit
-        </button>
-
-        <a href="/workout" class="btn btn-warning">
-          <i class="fas fa-undo"></i> Cancel</a
-        >
+        <div class="btn-group">
+          <a href="/grocery" class="btn btn-outline-secondary">
+            <i class="fa-solid fa-xmark me-2"></i>Cancel
+          </a>
+          <button type="submit" class="btn btn-success">
+            <i class="fa-solid fa-floppy-disk me-2"></i>Save Item
+          </button>
+        </div>
       </form>
     </div>
-  </div>
-  <div class="blank"></div>
-</div>
+  </main>
+</body>
 
 <% include ../partials/footer.ejs %>

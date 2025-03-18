@@ -1,70 +1,155 @@
 <% include ../partials/header.ejs %>
 
-<main class="register">
-  <!--Message Area-->
-  <% if (message.lenth > 0) { %>
-  <div class="alert alter-danger"><%= message %></div>
-  <% } %>
+<style>
+  .register-container {
+    max-width: 600px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
 
-  <div class="row">
-    <div class="offset-md-4 col-md-4">
-      <h1>Create your Account</h1>
-      <form method="post" autocomplete="off">
-        <fieldset class="form-group">
-          <label for="username"></label>
+  .register-header {
+    color: #2e7d32;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-label {
+    color: #2e7d32;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s;
+  }
+
+  .form-control:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+    outline: none;
+  }
+
+  .btn-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+  }
+
+  .btn-success {
+    background: #2e7d32;
+    border: none;
+    padding: 0.8rem 2rem;
+    transition: all 0.3s;
+  }
+
+  .btn-success:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+  }
+
+  .alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #f5c6cb;
+  }
+
+  .register-options {
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+</style>
+
+<body>
+  <main class="container">
+    <div class="register-container">
+      <% if (message.length > 0) { %>
+      <div class="alert alert-danger"><%= message %></div>
+      <% } %>
+
+      <h1 class="register-header">Create Account</h1>
+
+      <form method="POST" action="/register" autocomplete="off">
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
           <input
             type="text"
             class="form-control"
             name="username"
-            placeholder="Enter username"
             id="username"
+            placeholder="Enter username"
             required
             autofocus
           />
-        </fieldset>
-        <fieldset class="form-group">
-          <label for="password"></label>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
           <input
             type="password"
             class="form-control"
             name="password"
-            placeholder="Enter password"
             id="password"
+            placeholder="Enter password"
             required
           />
-        </fieldset>
-        <fieldset class="form-group">
-          <label for="email"></label>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">Email Address</label>
           <input
             type="email"
             class="form-control"
             name="email"
-            placeholder="Enter Email Address"
             id="email"
+            placeholder="Enter email address"
             required
           />
-        </fieldset>
-        <fieldset class="form-group">
-          <label for="displayName"></label>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="displayName">Display Name</label>
           <input
             type="text"
             class="form-control"
             name="displayName"
-            placeholder="Enter display name"
             id="displayName"
+            placeholder="Enter display name"
             required
           />
-        </fieldset>
-        <fieldset class="form-group text-right">
-          <input type="submit" class="btn btn-success" value="Register" />
-          <a href="/">
-            <input type="button" class="btn btn-warning" value="Cancel" />
-          </a>
-        </fieldset>
+        </div>
+
+        <div class="btn-group">
+          <a href="/" class="btn btn-outline-secondary">Cancel</a>
+          <button type="submit" class="btn btn-success">Register</button>
+        </div>
+
+        <div class="register-options">
+          <p>
+            Already have an account?
+            <a href="/login" class="text-success">Login here</a>
+          </p>
+        </div>
       </form>
     </div>
-  </div>
-  <div class="blank"></div>
-</main>
+  </main>
+</body>
 
 <% include ../partials/footer.ejs %>

@@ -1,51 +1,123 @@
 <% include ../partials/header.ejs %>
 
+<style>
+  .login-container {
+    max-width: 500px;
+    margin: 4rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .login-header {
+    color: #2e7d32;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .form-control {
+    border: 1px solid #ddd;
+    padding: 0.8rem;
+    margin: 0.5rem 0 1.5rem;
+  }
+
+  .form-control:focus {
+    border-color: #2e7d32;
+    box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+  }
+
+  .auth-links {
+    display: flex;
+    justify-content: space-between;
+    margin: 1.5rem 0;
+  }
+
+  .btn-success {
+    background: #2e7d32;
+    border: none;
+    padding: 0.8rem 2rem;
+    transition: all 0.3s;
+  }
+
+  .btn-success:hover {
+    background: #1b5e20;
+    transform: translateY(-2px);
+  }
+
+  .alert-danger {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #f5c6cb;
+  }
+</style>
+
 <body>
   <main class="container">
-    <% if (message.lenth > 0) { %>
-    <div class="alert alter-danger"><%= message %></div>
-    <% } %>
-
     <div class="row">
-      <div class="offset-md-4 col-md-4">
-        <h1>Login to your Account</h1>
-        <form method="post" autocomplete="off">
-          <fieldset class="form-group">
-            <label for="username"></label>
+      <div class="login-container">
+        <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+
+        <h1 class="login-header">Sign In</h1>
+
+        <form method="POST" action="/login" autocomplete="off">
+          <div class="form-group">
+            <label for="username" class="form-label">Username</label>
             <input
               type="text"
               class="form-control"
               name="username"
-              placeholder="Enter username"
               id="username"
+              placeholder="Enter your username"
               required
               autofocus
             />
-          </fieldset>
-          <fieldset class="form-group">
-            <label for="password"></label>
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="form-label">Password</label>
             <input
               type="password"
               class="form-control"
               name="password"
-              placeholder="Enter password"
               id="password"
+              placeholder="Enter your password"
               required
             />
-            or
-            <a class="register_button" href="/register">Register Here</a>
-          </fieldset>
-          <fieldset class="form-group text-right">
-            <input type="submit" class="btn btn-success" value="Login" />
-            <a href="/">
-              <input type="button" class="btn btn-warning" value="Cancel" />
-            </a>
-          </fieldset>
+          </div>
+
+          <div class="auth-links">
+            <a href="/register" class="text-success">Create Account</a>
+            <a href="/forgot-password" class="text-success">Forgot Password?</a>
+          </div>
+
+          <div class="form-group d-flex gap-2 justify-content-end">
+            <a href="/" class="btn btn-outline-secondary">Cancel</a>
+            <button type="submit" class="btn btn-success">Login</button>
+          </div>
+
+          <div class="social-login text-center mt-4">
+            <p class="text-muted">Or continue with</p>
+            <div class="d-flex gap-3 justify-content-center">
+              <button type="button" class="btn btn-outline-dark">
+                <i class="fab fa-google"></i> Google
+              </button>
+              <button type="button" class="btn btn-outline-dark">
+                <i class="fab fa-apple"></i> Apple
+              </button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
   </main>
-  <div class="blank"></div>
 </body>
 
 <% include ../partials/footer.ejs %>

@@ -1,59 +1,163 @@
-<% include ../partials/header.ejs %> 
+<% include ../partials/header.ejs %>
 
-<main class="container">
+<style>
+    .grocery-container {
+        padding: 2rem;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        margin: 2rem auto;
+    }
 
-    <div class="row">
-        <div class="offset-md-1 col-md-10">
-            <h1><% title %> </h1>  
-            <% if(typeof displayName == 'string' && displayName) { %>
-            <a href="/grocery/add" class="btn btn-primary" 
-            role="button"><i class="fas fa-plus-circle"></i> Add Grocery </a>      
-            <% } %>
-        <br>
-        <table class="table table-borderless table-striped table-hover table-light ">
+    .grocery-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
 
-            <thead class="table-dark text-uppercase">
-            <tr class="d-flex ">
-                <th class="text-center col-2">Item</th>
-                <th class="text-center col-2">Brand</th>
-                <th class="text-center col-2">Cost</th>
-                <th class="text-center col-2">Quantity</th>
+    .grocery-title {
+        color: #2E7D32;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .add-button {
+        background: #2E7D32;
+        color: white !important;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        transition: all 0.3s;
+    }
+
+    .add-button:hover {
+        background: #1B5E20;
+        color: white !important;
+        transform: translateY(-2px);
+    }
+
+    .add-button i {
+        color: inherit !important; 
+    }
+
+    .grocery-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 0.8rem;
+    }
+
+    .grocery-table thead th {
+        background: #f8f9fa;
+        color: #2E7D32;
+        font-weight: 600;
+        padding: 1rem;
+        border-bottom: 2px solid #2E7D32;
+    }
+
+    .grocery-table tbody td {
+        background: white;
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        vertical-align: middle;
+    }
+
+    .grocery-table tbody tr:hover {
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+
+    .btn-edit {
+        background: #2E7D32;
+        color: white !important;
+        padding: 0.4rem 1rem;
+        transition: all 0.3s;
+        border: 1px solid #2E7D32;
+    }
+
+    .btn-edit:hover {
+        background: #1B5E20 !important;
+        border-color: #1B5E20;
+        transform: translateY(-1px);
+    }
+
+    .btn-delete {
+        background: #dc3545;
+        color: white !important;
+        padding: 0.4rem 1rem;
+        transition: all 0.3s;
+        border: 1px solid #dc3545;
+    }
+
+    .btn-delete:hover {
+        background: #bb2d3b !important;
+        border-color: #bb2d3b;
+        transform: translateY(-1px);
+    }
+
+    .action-buttons .btn i {
+        color: inherit !important;
+    }
+    
+</style>
+
+<body>
+    <main class="container">
+        <div class="grocery-container">
+            <div class="grocery-header">
+                <h1 class="grocery-title">Grocery List</h1>
                 <% if(typeof displayName == 'string' && displayName) { %>
-                <th class="text-center col-4">Functions</th>
-                <% } %>
-            </tr>
-            </thead>
-
-            <tbody>
-            <% for(let count=0;count<grocerylist.length;count++) { %>    
-            <tr class="d-flex">
-                <td class="text-center col-2"><%= grocerylist[count].item %></td>
-                <td class="text-center col-2"><%= grocerylist[count].brand %></td>
-                <td class="text-center col-2"><%= grocerylist[count].cost %></td>
-                <td class="text-center col-2"><%= grocerylist[count].quantity %></td>
-                <% if(typeof displayName == 'string' && displayName) { %>
-                <td class="text-center col-2">
-                    <a href="/grocery/edit/<%= grocerylist[count]._id %>" 
-                        class="btn btn-primary btn-sm">
-                        <i class="fas fa-pencil-alt"></i> Edit
+                    <a href="/grocery/add" class="btn add-button">
+                        <i class="fas fa-plus-circle me-2"></i>Add New Item
                     </a>
-                </td>
-                <td class="text-center col-2">
-                    <a href="/grocery/delete/<%= grocerylist[count]._id %>" 
-                        class="btn btn-danger btn-sm">
-                        <i class="fas trash-alt"></i> Delete
-                    </a>
-                </td>
                 <% } %>
-            </tr>
-            <% } %>
-            </tbody>
+            </div>
 
-        </table>
-    </div>
-    </div>
-    <div class="blank">
-    </div>
-</main>
+            <table class="grocery-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Brand</th>
+                        <th>Cost</th>
+                        <th>Quantity</th>
+                        <% if(typeof displayName == 'string' && displayName) { %>
+                            <th class="text-center">Actions</th>
+                        <% } %>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let count=0;count<grocerylist.length;count++) { %>    
+                        <tr>
+                            <td>
+                                <span class="d-block"><%= grocerylist[count].item %></span>
+                            </td>
+                            <td><%= grocerylist[count].brand %></td>
+                            <td>$<%= parseFloat(grocerylist[count].cost).toFixed(2) %></td>
+                            <td>
+                                <span class="quantity-badge"><%= grocerylist[count].quantity %></span>
+                            </td>
+                            <% if(typeof displayName == 'string' && displayName) { %>
+                                <td class="action-buttons">
+                                    <a href="/grocery/edit/<%= grocerylist[count]._id %>" 
+                                        class="btn btn-edit btn-sm">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                    <a href="/grocery/delete/<%= grocerylist[count]._id %>" 
+                                        class="btn btn-delete btn-sm">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                            <% } %>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
 
 <% include ../partials/footer.ejs %>
